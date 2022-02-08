@@ -30,7 +30,7 @@ while True:
     print('connection from ', addr)
     if clientsocket:
         while(vid.isOpened()):
-            time.sleep(0.03)  # avoid latency buildup over time
+            time.sleep(0.05)  # avoid latency buildup over time
 
             # collect image data
             img, frame = vid.read()
