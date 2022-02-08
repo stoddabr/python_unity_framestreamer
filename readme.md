@@ -3,6 +3,8 @@ Prototype for streaming ROS images to Unity textures
 
 This project streams images from a python script that streams image frames from a cv2 camera. There are a lot of ways to access a video/camera stream in ROS and so this project focuses on a prototype that can be customized to suit your needs based on a custom frame streaming protocol.
 
+Example code for a ROS node is planned and will be added here when ready.
+
 Current Architecture:
 ![python to unity over tcp diagram](readme_assets/diagram-rosless.png)
 
@@ -32,7 +34,7 @@ Now the camera feed should appear on the gameobjects in the scene.
 # Next steps
 * Create a ROS node
 * Improve stability (especially when client unexpectedly disconnects)
-* Find better way to avoid "latency buildup"
+* Find better way to avoid latency at higher fps
 
 # Helpful Resources / Sources
 
