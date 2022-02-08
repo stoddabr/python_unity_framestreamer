@@ -11,6 +11,17 @@ Current Architecture:
 Goal Architecture:
 ![ros to unity over tcp diagram](readme_assets/diagram-ros.png)
 
+## Code features
+
+* Multithreaded to accept multiple clients
+
+## Code issues/drawbacks
+
+* Stream isn't adaptive
+* Threads/sockets could be handled better
+* * closing sockets is assumed to be handled by garbage collector which may not be best
+* * a try/except hack is used to prevent `s.accept()` from blocking the main thread (this blocking the thread prevents graceful exit)
+
 # Setup Instructions
 
 ## Test Setup (python client)
@@ -35,6 +46,7 @@ Now the camera feed should appear on the gameobjects in the scene.
 * Create a ROS node
 * Improve stability (especially when client unexpectedly disconnects)
 * Find better way to avoid latency at higher fps
+* mux image over multiple sockets
 
 # Helpful Resources / Sources
 
@@ -42,6 +54,7 @@ Now the camera feed should appear on the gameobjects in the scene.
 * background on sockets, lots ideas for optimizations https://docs.python.org/3/howto/sockets.html
 * example code for python socket https://medium.com/nerd-for-tech/developing-a-live-video-streaming-application-using-socket-programming-with-python-6bc24e522f19 
 * example code for python socket https://github.com/AmimaShifa/Live-Video-Streaming-Application/blob/main/Client.py.ipynb
+* socket over multiple threads https://stackoverflow.com/questions/10810249/python-socket-multiple-clients?answertab=votes#tab-top
 
 ## Unity
 * image over tcp project https://stackoverflow.com/questions/42717713/unity-live-video-streaming
