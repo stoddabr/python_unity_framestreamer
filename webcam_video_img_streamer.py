@@ -98,16 +98,14 @@ def server_listen():
         initThread(tc)
 
 if __name__ == "__main__":
-    while True:
-        try:
+    try:
+        while True:
             server_listen()
-        except KeyboardInterrupt:
-            print('exception triggered')
-            killAllThreads()
-            s.close()
-            cv2.destroyAllWindows() 
-            os._exit('error')
-        except Exception as e:
-            print('error in main loop:', e)
-            break
-
+    except KeyboardInterrupt:
+        print('exception triggered')
+        killAllThreads()
+    except Exception as e:
+        print('error in main loop:', e)
+    s.close()
+    cv2.destroyAllWindows() 
+    os._exit('error')
